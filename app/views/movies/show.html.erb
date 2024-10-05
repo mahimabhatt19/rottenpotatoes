@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container mt-4" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+  <h1 class="mb-4 text-center">Displaying Movie</h1>
+<div class="d-flex justify-content-center">
+<%= render @movie %>
+
+<div>
+  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
+  
+<%= link_to "Back to Movies", movies_path(sort: params[:sort], direction: params[:direction]) %>
+
+<br><br>
+  <%= button_to "Destroy this movie", @movie, method: :delete %>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Movies" %>
+
+<div class="container mt-4" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+  <h1 class="mb-4 text-center">Movies</h1>
+<div class="d-flex justify-content-center">
+<table class="movie-table table table-striped table-bordered">
+  <thead>
+    <tr>
+      <!-- Add sortable column headers -->
+      <th>
+        <%= link_to "Title", { sort: "title", direction: (sort_column == "title" && sort_direction == "asc") ? "desc" : "asc" } %>
+        <%= sort_column == "title" ? (sort_direction == "asc" ? "▲" : "▼") : "" %>
+      </th>
+      <th>
+        <%= link_to "Rating", { sort: "rating", direction: (sort_column == "rating" && sort_direction == "asc") ? "desc" : "asc" } %>
+        <%= sort_column == "rating" ? (sort_direction == "asc" ? "▲" : "▼") : "" %>
+      </th>
+      <th>Description</th>
+      <th>
+        <%= link_to "Release Date", { sort: "release_date", direction: (sort_column == "release_date" && sort_direction == "asc") ? "desc" : "asc" } %>
+        <%= sort_column == "release_date" ? (sort_direction == "asc" ? "▲" : "▼") : "" %>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.description %></td>
+        <td><%= movie.release_date.strftime("%B %d, %Y") %></td> <!-- Format the datetime -->
+        <td>
+          <!-- Add sort parameters to the links -->
+          <%= link_to "Show", movie_path(movie, sort: session[:sort], direction: session[:direction]) %> |
+          <%= link_to "Edit", edit_movie_path(movie, sort: session[:sort], direction: session[:direction]) %> |
+          <%= link_to "Delete", movie_path(movie, sort: session[:sort], direction: session[:direction]), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<!-- Include sort parameters in the "New Movie" link as well -->
+<div class="text-center mt-4">
+<%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %>
+</div>
