@@ -2,10 +2,10 @@
 
 <% content_for :title, "Movies" %>
 
-<div class="container mt-4" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
-  <h1 class="mb-4 text-center">Movies</h1>
-<div class="d-flex justify-content-center">
-<table class="movie-table table table-striped table-bordered">
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+  <h1 class="text-center-custom">Movies</h1>
+  <div class="table-wrapper">
+<table class="movie-table">
   <thead>
     <tr>
       <!-- Add sortable column headers -->
@@ -45,6 +45,6 @@
 </div>
 
 <!-- Include sort parameters in the "New Movie" link as well -->
-<div class="text-center mt-4">
+<div class="text-center-custom">
 <%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %>
 </div>

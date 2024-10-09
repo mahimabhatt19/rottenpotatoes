@@ -1,13 +1,13 @@
 <% content_for :title, "Editing movie" %>
 
-<div class="container mt-4" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
-  <h1 class="mb-4 text-center">Editing</h1>
-<div class="d-flex justify-content-center">
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+  <h1 >Editing</h1>
+<div >
 <%= render "form", movie: @movie %>
 
 <br>
 </div>
-<div>
+<div class="text-center-custom">
   <%= link_to "Show this movie", @movie %> |
   <%= link_to "Back to movies", movies_path %>
 </div>

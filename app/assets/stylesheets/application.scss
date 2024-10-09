@@ -13,30 +13,41 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
 
- .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-  }
-  
-  .custom-table th, .custom-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-  }
-  
-  .custom-table thead {
-    background-color: #f3a6a6;
-  }
-  
-  .custom-table tbody tr:nth-child(even) {
-    background-color: #ed9292;
-  }
-  
-  .custom-table tbody tr:hover {
-    background-color: #db7979;
-  }
-  
+ /* Movie Table Styling */
+.movie-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Basic Table Styling */
+.movie-table th, .movie-table td {
+  border: 1px solid #ddd; /* Adds border to cells */
+  padding: 8px;
+}
+
+.movie-table th {
+  background-color: #f2f2f2; /* Background for table headers */
+  text-align: left;
+}
+
+/* Zebra Striping */
+.movie-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row background */
+}
+
+/* Hover Effect */
+.movie-table tr:hover {
+  background-color: #ddd; /* Highlight rows on hover */
+}
+
+/* Bordered Table */
+.movie-table {
+  border: 1px solid #ddd;
+}
+
+/* Custom text center class */
+.text-center-custom {
+  text-align: center;  /* Center the text */
+  margin-top: 1.5rem;  /* Equivalent to mt-4 (margin top) */
+}
